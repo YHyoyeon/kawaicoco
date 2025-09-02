@@ -47,15 +47,35 @@ export default function AboutPage() {
     }
   ];
 
-  const dailyRoutine = [
-    { time: '06:00', activity: '아침 산책', description: '창가에서 새소리 듣기', icon: '🌅', image: '/coco_6.png' },
-    { time: '08:00', activity: '아침 식사', description: '참치와 연어가 들어간 고급 사료', icon: '🍽️', image: '/coco_4.png' },
-    { time: '10:00', activity: '놀이 시간', description: '장난감 쥐와 사냥놀이', icon: '🎾', image: '/coco_3.png' },
-    { time: '12:00', activity: '낮잠', description: '소파에서 편안하게 휴식', icon: '😴', image: '/coco_2.png' },
-    { time: '15:00', activity: '창가 관찰', description: '밖의 풍경과 새들 구경', icon: '👀', image: '/coco_1.png' },
-    { time: '18:00', activity: '저녁 식사', description: '닭고기와 야채가 들어간 사료', icon: '🍖', image: '/coco_4.png' },
-    { time: '20:00', activity: '저녁 놀이', description: '레이저 포인터로 운동', icon: '🔴', image: '/coco_3.png' },
-    { time: '22:00', activity: '취침 준비', description: '부드러운 담요 위에서 잠들기', icon: '🛏️', image: '/coco_2.png' }
+  const cocoPride = [
+    { 
+      title: '츄르 잘 먹음', 
+      description: '아주 귀엽고 못생기게 야무지게 먹음', 
+      icon: '🍖', 
+      image: '/coco_5.png',
+      highlight: '먹보 고양이'
+    },
+    { 
+      title: '가끔 멍청하게 바라보는게', 
+      description: '아주 귀여워', 
+      icon: '🤪', 
+      image: '/coco_3.png',
+      highlight: '멍청함의 귀여움'
+    },
+    { 
+      title: '집중할 때', 
+      description: '너무 귀여워', 
+      icon: '🎯', 
+      image: '/coco_1.png',
+      highlight: '집중력의 달인'
+    },
+    { 
+      title: '잘 논다', 
+      description: '꼬리 펑하고 잘 논다. 눈곱이 껴도 귀엽다.', 
+      icon: '🎾', 
+      image: '/coco_2.png',
+      highlight: '놀이의 천재'
+    }
   ];
 
   return (
@@ -231,7 +251,6 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {personalityDetails.map((personality, index) => {
-              const Icon = personality.icon;
               return (
                 <motion.div
                   key={personality.trait}
@@ -273,7 +292,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Daily Routine */}
+      {/* 코코 자랑 */}
       <section className="py-20 bg-gradient-to-r from-amber-100 to-yellow-100">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
@@ -286,47 +305,62 @@ export default function AboutPage() {
             <div className="inline-flex items-center space-x-4 bg-white px-8 py-4 rounded-full shadow-lg border-4 border-amber-300">
               <Star className="w-8 h-8 text-amber-500" />
               <h2 className="text-4xl font-bold text-gray-800">
-                {catInfo.name}의 하루 일과
+                {catInfo.name} 자랑
               </h2>
               <Star className="w-8 h-8 text-amber-500" />
             </div>
             <p className="text-xl text-gray-600 mt-6">
-              매일 반복되는 Coco의 특별한 일과를 시간순으로 정리했어요 ⏰
+              우리 코코가 특별한 이유를 자랑해요 ✨
             </p>
           </motion.div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-6">
-              {dailyRoutine.map((routine, index) => (
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              {cocoPride.map((pride, index) => (
                 <motion.div
-                  key={routine.time}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  key={pride.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all border-4 border-amber-200"
+                  whileHover={{ y: -5, rotate: 1 }}
+                  className="bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all border-4 border-amber-200 overflow-hidden relative group"
+                  style={{
+                    background: 'linear-gradient(135deg, #fef3c7 0%, #fed7aa 25%, #fef3c7 50%, #fed7aa 75%, #fef3c7 100%)',
+                    boxShadow: '0 20px 40px rgba(251, 191, 36, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.8)'
+                  }}
                 >
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-orange-100 to-amber-100 p-1">
+                  {/* 메모장 클립 장식 */}
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-16 h-8 bg-red-400 rounded-full shadow-lg border-2 border-red-500"></div>
+                  
+
+                  
+                  <div className="text-center">
+                    {/* 사진을 더 크게 */}
+                    <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-r from-orange-100 to-amber-100 p-3 shadow-xl border-4 border-white">
                       <Image
-                        src={routine.image}
-                        alt={routine.activity}
-                        width={64}
-                        height={64}
-                        className="w-full h-full object-cover rounded-full"
+                        src={pride.image}
+                        alt={pride.title}
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover rounded-xl"
                         style={{ width: "auto", height: "auto" }}
                       />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <span className="text-2xl font-bold text-amber-600">
-                          {routine.time}
-                        </span>
-                        <h3 className="text-xl font-semibold text-gray-800">
-                          {routine.activity}
-                        </h3>
-                      </div>
-                      <p className="text-gray-600">{routine.description}</p>
+                    
+
+                    
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3 font-onfont">
+                      {pride.title}
+                    </h3>
+                    
+                    <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+                      {pride.description}
+                    </p>
+                    
+                    {/* 자랑 포인트를 메모장 느낌으로 */}
+                    <div className="inline-block px-6 py-3 bg-gradient-to-r from-amber-300 to-orange-300 text-white text-base font-bold rounded-full shadow-lg border-2 border-amber-400 transform rotate-1">
+                      {pride.highlight}
                     </div>
                   </div>
                 </motion.div>
