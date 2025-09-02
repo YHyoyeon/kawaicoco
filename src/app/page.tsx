@@ -114,6 +114,7 @@ export default function Home() {
                       width={128}
                       height={128}
                       className="w-full h-full object-cover rounded-full"
+                      priority
                     />
                   </div>
                 </div>
@@ -280,6 +281,7 @@ export default function Home() {
                       width={160}
                       height={160}
                       className="w-full h-full object-contain rounded-lg"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </div>
                   <div className="text-4xl mb-3">{moment.icon}</div>

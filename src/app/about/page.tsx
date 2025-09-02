@@ -253,6 +253,7 @@ export default function AboutPage() {
                           width={64}
                           height={64}
                           className="w-full h-full object-cover"
+                          style={{ width: "auto", height: "auto" }}
                         />
                       </div>
                       <div>
@@ -313,6 +314,7 @@ export default function AboutPage() {
                         width={64}
                         height={64}
                         className="w-full h-full object-cover rounded-full"
+                        style={{ width: "auto", height: "auto" }}
                       />
                     </div>
                     <div className="flex-1">

@@ -216,6 +216,7 @@ export default function GalleryPage() {
                       width={300}
                       height={300}
                       className="w-full h-full object-cover rounded-2xl shadow-lg"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </div>
                   <div className="p-6">
