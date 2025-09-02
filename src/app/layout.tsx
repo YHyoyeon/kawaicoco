@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   title: "우리집 고양이 코코",
   description: "돼지 말랑이 코코 자랑하기",
   icons: {
-    icon: '/coco_icon.png',
-    shortcut: '/coco_icon.png',
-    apple: '/coco_icon.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 

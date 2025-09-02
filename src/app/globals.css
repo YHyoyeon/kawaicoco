@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 온글잎 콘콘체 폰트 정의 */
+@font-face {
+  font-family: '온글잎 콘콘체';
+  src: url('/onfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 콘콘 폰트 정의 */
+@font-face {
+  font-family: 'Concon';
+  src: url('/concon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-inter: 'Inter', sans-serif;
   --font-fredoka: 'Fredoka', sans-serif;
@@ -10,6 +28,8 @@
   --font-pacifico: 'Pacifico', cursive;
   --font-bangers: 'Bangers', cursive;
   --font-bubblegum-sans: 'Bubblegum Sans', cursive;
+  --font-onfont: '온글잎 콘콘체', cursive;
+  --font-concon: 'Concon', cursive;
 }
 
 /* 귀여운 글꼴 클래스들 */
@@ -37,9 +57,23 @@
   font-family: var(--font-bubblegum-sans);
 }
 
-/* 기본 스타일 */
-body {
-  font-family: var(--font-inter);
+.font-concon {
+  font-family: var(--font-concon);
+}
+
+/* 기본 스타일 - Tailwind 기본 폰트를 덮어씀 */
+@layer base {
+  html {
+    font-family: var(--font-concon), var(--font-inter), sans-serif !important;
+  }
+  
+  body {
+    font-family: var(--font-concon), var(--font-inter), sans-serif !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
+    font-family: var(--font-concon), var(--font-inter), sans-serif !important;
+  }
 }
 
 /* 귀여운 텍스트 효과 */

@@ -8,12 +8,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        'sans': ['var(--font-concon)', 'var(--font-inter)', 'sans-serif'],
         'pacifico': ['var(--font-pacifico)', 'cursive'],
         'comic-neue': ['var(--font-comic-neue)', 'cursive'],
         'indie-flower': ['var(--font-indie-flower)', 'cursive'],
         'bubblegum-sans': ['var(--font-bubblegum-sans)', 'cursive'],
         'bangers': ['var(--font-bangers)', 'cursive'],
         'fredoka': ['var(--font-fredoka)', 'sans-serif'],
+        'onfont': ['var(--font-onfont)', 'cursive'],
+        'concon': ['var(--font-concon)', 'cursive'],
       },
       animation: {
         'bounce': 'bounce 1s infinite',

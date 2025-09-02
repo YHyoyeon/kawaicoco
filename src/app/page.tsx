@@ -119,7 +119,7 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 font-pacifico cute-text-shadow">
+                <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 font-onfont cute-text-shadow">
                   고양이 보고가세요
                 </h1>
                 <p className="text-2xl md:text-3xl text-gray-600 mb-4 font-comic-neue">
@@ -252,7 +252,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center space-x-4 bg-white px-8 py-4 rounded-full shadow-lg border-4 border-amber-300">
               <Sparkles className="w-8 h-8 text-amber-500" />
-              <h2 className="text-4xl font-bold text-gray-800 font-bubblegum-sans cute-text-shadow">
+              <h2 className="text-4xl font-bold text-gray-800 font-onfont cute-text-shadow">
                 집사 뒤집어지는 순간들
               </h2>
               <Sparkles className="w-8 h-8 text-amber-500" />

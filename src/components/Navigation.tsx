@@ -34,7 +34,7 @@ const Navigation = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          <span className="text-xl font-bold text-gray-800">냥냥이 코코</span>
+          <span className="text-xl font-bold text-gray-800 font-onfont">냥냥이 코코</span>
           </motion.div>
 
           <div className="hidden md:flex space-x-8">
