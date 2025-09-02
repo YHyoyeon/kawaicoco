@@ -14,26 +14,30 @@ export default function Home() {
     {
       icon: Heart,
       title: '사랑스러운 응꼬냄새',
-      description: '코코는 공주라서 응꼬를 혼자 닦지 않아요. /n 집사가 닦아줘요.',
-      color: 'from-orange-300 to-orange-400'
+      description: '공주라서 응꼬를 혼자 닦지 않아',
+      color: 'from-orange-300 to-orange-400',
+      effects: ['highlight', 'float']
     },
     {
       icon: Star,
       title: '우렁찬 골골송',
-      description: '손만 대면 골골거려서 아주 귀여워요. /n 머가 그리 좋을까',
-      color: 'from-amber-300 to-amber-400'
+      description: '손만 대면 골골거림\n아주 우렁차',
+      color: 'from-amber-300 to-amber-400',
+      effects: ['rainbow', 'bounce']
     },
     {
       icon: Camera,
       title: '무릎냥이',
-      description: '원피스를 입고 무릎을 치면 올라와요. /n 해먹은 사줘도 안 쓰면서 인간 해먹은 써먹어요.',
-      color: 'from-orange-400 to-red-400'
+      description: '해먹은 사줘도 안 쓰면서 인간을 해먹으로 써먹음',
+      color: 'from-orange-400 to-red-400',
+      effects: ['glow', 'pulse']
     },
     {
       icon: Coffee,
       title: '아주 귀여움',
-      description: '자기 이름이 귀여워인줄 알아요. /n 귀엽긴해요.',
-      color: 'from-orange-300 to-yellow-400'
+      description: '자기 이름이 귀여워인줄 안다\n귀엽긴해',
+      color: 'from-orange-300 to-yellow-400',
+      effects: ['sparkle', 'wiggle']
     }
   ];
 
@@ -164,7 +168,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all border-4 border-orange-300"
                 >
-                  🐱 곡고 더 알아보기
+                  🐱 곡고
                 </motion.button>
               </Link>
               <Link href="/diary">
@@ -228,9 +232,44 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-white mb-4">
                         {feature.title}
                       </h3>
-                      <p className="text-white text-lg leading-relaxed">
-                        {feature.description}
-                      </p>
+                      <div className="text-white text-lg leading-relaxed">
+                        {feature.description.split('\n').map((line, lineIndex) => (
+                          <motion.p
+                            key={lineIndex}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 + lineIndex * 0.2 }}
+                            className={`mb-2 ${
+                              feature.effects?.includes('highlight') ? 'bg-white bg-opacity-20 px-2 py-1 rounded-lg' : ''
+                            } ${
+                              feature.effects?.includes('glow') ? 'text-yellow-200 drop-shadow-lg' : ''
+                            } ${
+                              feature.effects?.includes('sparkle') ? 'relative' : ''
+                            } ${
+                              feature.effects?.includes('bounce') ? 'effect-bounce' : ''
+                            } ${
+                              feature.effects?.includes('pulse') ? 'effect-pulse' : ''
+                            } ${
+                              feature.effects?.includes('wiggle') ? 'effect-wiggle' : ''
+                            } ${
+                              feature.effects?.includes('float') ? 'effect-float' : ''
+                            } ${
+                              feature.effects?.includes('rainbow') ? 'effect-rainbow' : ''
+                            }`}
+                          >
+                            {line}
+                            {feature.effects?.includes('sparkle') && (
+                              <motion.span
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                className="absolute -right-2 -top-1 text-yellow-200"
+                              >
+                                ✨
+                              </motion.span>
+                            )}
+                          </motion.p>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -240,7 +279,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 집사 뒤집어지는 순간들 Section */}
+      {/* 뒤집어지는 순간들 Section */}
       <section className="py-20 bg-gradient-to-r from-amber-100 to-yellow-100">
         <div className="max-w-6xl mx-auto px-4">
           <motion.div
@@ -253,7 +292,7 @@ export default function Home() {
             <div className="inline-flex items-center space-x-4 bg-white px-8 py-4 rounded-full shadow-lg border-4 border-amber-300">
               <Sparkles className="w-8 h-8 text-amber-500" />
               <h2 className="text-4xl font-bold text-gray-800 font-onfont cute-text-shadow">
-                집사 뒤집어지는 순간들
+                뒤집어지는 순간들
               </h2>
               <Sparkles className="w-8 h-8 text-amber-500" />
             </div>

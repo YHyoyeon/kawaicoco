@@ -74,10 +74,12 @@ export default function DiaryPage() {
   };
 
   const addActivity = () => {
-    setFormData(prev => ({
-      ...prev,
-      activities: [...prev.activities, '']
-    }));
+    if (formData.activities.length < 3) {
+      setFormData(prev => ({
+        ...prev,
+        activities: [...prev.activities, '']
+      }));
+    }
   };
 
   const removeActivity = (index: number) => {
@@ -179,11 +181,26 @@ export default function DiaryPage() {
                   <input
                     type="text"
                     value={formData.title}
-                    onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
+                    onChange={(e) => {
+                      if (e.target.value.length <= 100) {
+                        setFormData(prev => ({ ...prev, title: e.target.value }))
+                      }
+                    }}
+                    maxLength={100}
                     className="w-full px-4 py-3 border-2 border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg"
                     placeholder="오늘 Coco는 어떤 하루를 보냈나요?"
                     required
                   />
+                  <div className="flex justify-between items-center mt-2">
+                    <span className="text-sm text-gray-500">
+                      {formData.title.length}/100자
+                    </span>
+                    {formData.title.length >= 100 && (
+                      <span className="text-sm text-orange-500 font-medium">
+                        최대 글자 수에 도달했어요!
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div>
@@ -192,12 +209,27 @@ export default function DiaryPage() {
                   </label>
                   <textarea
                     value={formData.content}
-                    onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
+                    onChange={(e) => {
+                      if (e.target.value.length <= 500) {
+                        setFormData(prev => ({ ...prev, content: e.target.value }))
+                      }
+                    }}
+                    maxLength={500}
                     rows={4}
                     className="w-full px-4 py-3 border-2 border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent text-lg"
                     placeholder="Coco의 특별한 순간을 자세히 적어주세요..."
                     required
                   />
+                  <div className="flex justify-between items-center mt-2">
+                    <span className="text-sm text-gray-500">
+                      {formData.content.length}/500자
+                    </span>
+                    {formData.content.length >= 500 && (
+                      <span className="text-sm text-orange-500 font-medium">
+                        최대 글자 수에 도달했어요!
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div>
@@ -279,13 +311,20 @@ export default function DiaryPage() {
                         )}
                       </div>
                     ))}
-                    <button
-                      type="button"
-                      onClick={addActivity}
-                      className="text-orange-500 hover:text-orange-600 text-lg font-medium hover:bg-orange-50 px-4 py-2 rounded-xl transition-colors"
-                    >
-                      ✨ + 활동 추가하기
-                    </button>
+                    {formData.activities.length < 3 && (
+                      <button
+                        type="button"
+                        onClick={addActivity}
+                        className="text-orange-500 hover:text-orange-600 text-lg font-medium hover:bg-orange-50 px-4 py-2 rounded-xl transition-colors"
+                      >
+                        ✨ + 활동 추가하기
+                      </button>
+                    )}
+                    {formData.activities.length >= 3 && (
+                      <div className="text-gray-400 text-sm px-4 py-2">
+                        활동은 최대 3개까지 추가할 수 있어요
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -299,9 +338,10 @@ export default function DiaryPage() {
                   </button>
                   <button
                     type="submit"
+                    disabled
                     className="flex-1 px-6 py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl font-bold text-lg hover:shadow-xl transition-all border-4 border-orange-300"
                   >
-                    ✨ 일기 저장하기
+                    저장 못해요
                   </button>
                 </div>
               </form>
