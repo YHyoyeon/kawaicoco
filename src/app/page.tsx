@@ -43,39 +43,27 @@ export default function Home() {
 
   const specialMoments = [
     {
-      title: 'DANCE DANCE DAY',
       description: '장난감을 잡을 수 있을 것인가',
-      icon: '💃',
       image: '/coco_3.png'
     },
     {
-      title: 'SUNSHINE TIME',
       description: '굽는 중',
-      icon: '☀️',
       image: '/coco_6.png'
     },
     {
-      title: 'PLAY TIME',
       description: '사냥놀이',
-      icon: '🎾',
       image: '/coco_1.png'
     },
     {
-      title: 'SLEEPY MOMENT',
       description: '복실해지는 중',
-      icon: '😴',
       image: '/coco_2.png'
     },
     {
-      title: 'TRICOLOR BEAUTY',
       description: '귀여워',
-      icon: '🌈',
       image: '/coco_5.png'
     },
     {
-      title: 'KOREAN CHARM',
       description: '역시 귀여워',
-      icon: '🇰🇷',
       image: '/coco_4.png'
     }
   ];
@@ -304,7 +292,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {specialMoments.map((moment, index) => (
               <motion.div
-                key={moment.title}
+                key={moment.description}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -316,17 +304,13 @@ export default function Home() {
                   <div className="w-40 h-40 mx-auto mb-4 rounded-xl overflow-hidden bg-gradient-to-r from-orange-100 to-amber-100 p-1">
                     <Image
                       src={moment.image}
-                      alt={moment.title}
+                      alt={moment.description}
                       width={160}
                       height={160}
                       className="w-full h-full object-contain rounded-lg"
                       style={{ width: "auto", height: "auto" }}
                     />
                   </div>
-                  <div className="text-4xl mb-3">{moment.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    {moment.title}
-                  </h3>
                   <p className="text-gray-600">
                     {moment.description}
                   </p>

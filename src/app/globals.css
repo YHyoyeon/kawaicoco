@@ -20,6 +20,12 @@
   font-display: swap;
 }
 
+/* 커서 스타일 강제 적용 */
+html, body, * {
+  cursor: url('/cursor.svg') 8 8, auto !important;
+}
+
+/* 커서 스타일 정의 */
 :root {
   --font-inter: 'Inter', sans-serif;
   --font-fredoka: 'Fredoka', sans-serif;
@@ -65,14 +71,40 @@
 @layer base {
   html {
     font-family: var(--font-concon), var(--font-inter), sans-serif !important;
+    cursor: url('/cursor.svg') 8 8, auto !important;
   }
   
   body {
     font-family: var(--font-concon), var(--font-inter), sans-serif !important;
+    cursor: url('/cursor.svg') 8 8, auto !important;
   }
   
   h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
     font-family: var(--font-concon), var(--font-inter), sans-serif !important;
+    cursor: url('/cursor.svg') 8 8, auto !important;
+  }
+  
+  /* 링크와 버튼에 호버 효과 추가 */
+  a:hover, button:hover {
+    cursor: url('/cursor.svg') 8 8, pointer !important;
+  }
+  
+  /* 클릭 가능한 요소들에 대한 커서 설정 */
+  button, input[type="button"], input[type="submit"], input[type="reset"], 
+  input[type="file"], select, textarea {
+    cursor: url('/cursor.svg') 8 8, pointer !important;
+  }
+  
+  /* 텍스트 선택 영역 커서 */
+  input[type="text"], input[type="password"], input[type="email"], 
+  input[type="search"], input[type="url"], input[type="tel"], 
+  input[type="number"], textarea {
+    cursor: url('/cursor.svg') 8 8, text !important;
+  }
+  
+  /* 모든 요소에 커서 적용 (강제 적용) */
+  * {
+    cursor: url('/cursor.svg') 8 8, auto !important;
   }
 }
 
